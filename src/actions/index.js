@@ -1,7 +1,8 @@
 import {
   GET_ALL_SOURCES_STARTED,
   GET_ALL_SOURCES_DONE,
-  GET_ALL_SOURCES_FAILED
+  GET_ALL_SOURCES_FAILED,
+  SELECT_SOURCE_CATEGORY
 } from "../types/types";
 import { axiosInstance, API_KEY } from "../API/news-api";
 
@@ -21,14 +22,21 @@ export const getSourcesFailed = () => {
     type: GET_ALL_SOURCES_FAILED
   };
 };
-
-export const fetchPosts = () => {
+export const selectSourceCategory = (category) => {
+  return {
+    type: SELECT_SOURCE_CATEGORY,
+    category
+  };
+};
+export const fetchPosts = (category) => {
   return function(dispatch) {
     dispatch(getSourcesStarted());
+    dispatch(selectSourceCategory(category));
     return axiosInstance
       .get("/v2/sources", {
         params: {
-          apiKey: API_KEY
+          apiKey: API_KEY,
+          category: category
         }
       })
       .then(el => {

@@ -1,10 +1,10 @@
 import React from "react";
-import SourceList from "./sources/sourceList";
+import SourcesContainer from "./sources/sourcesContainer";
 
 const App = () => {
   return (
     <React.Fragment>
-      <SourceList />
+      <SourcesContainer />
     </React.Fragment>
   );
 };

@@ -15,9 +15,11 @@ export class SourceList extends Component {
         return (
           <div key={el.id}>
             <strong>{el.name}</strong>
-            <small><a href={el.url}>Go to {el.url}</a></small>
+            <small>Go to:
+              <a href={el.url}> {el.url}</a>
+            </small>
           </div>
-        )
+        );
       });
     }
 
@@ -31,7 +33,6 @@ export class SourceList extends Component {
 }
 
 const mapStateToProps = state => {
-  // console.log(state)
   return {
     newsSources: state.sourcesData
   };
