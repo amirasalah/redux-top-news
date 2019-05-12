@@ -22,7 +22,7 @@ export const sourcesReducer = (state = [], action) => {
       });
     case SELECT_SOURCE_CATEGORY:
       return Object.assign({}, state, {
-        category: action.category || 'business'
+        category: action.category
       });
     default:
       return state;

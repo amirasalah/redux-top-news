@@ -4,7 +4,7 @@ import { fetchPosts } from "../../actions";
 
 export class SourceList extends Component {
   componentDidMount() {
-    this.props.fetchPosts();
+    this.props.fetchPosts('business');
   }
 
   render() {
@@ -18,6 +18,7 @@ export class SourceList extends Component {
             <small>Go to:
               <a href={el.url}> {el.url}</a>
             </small>
+            <p>{el.category}</p>
           </div>
         );
       });
