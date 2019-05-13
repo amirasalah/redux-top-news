@@ -4,7 +4,7 @@ import { fetchPosts } from "../../actions";
 
 export class SourceList extends Component {
   componentDidMount() {
-    this.props.fetchPosts('business');
+    this.props.fetchPosts();
   }
 
   render() {
@@ -14,11 +14,8 @@ export class SourceList extends Component {
       availableNewsSources = availableSources.sources.map(el => {
         return (
           <div key={el.id}>
-            <strong>{el.name}</strong>
-            <small>Go to:
-              <a href={el.url}> {el.url}</a>
-            </small>
-            <p>{el.category}</p>
+            <a href={el.url}> <strong>{el.name}</strong></a> /
+            <small>{el.category}</small>
           </div>
         );
       });

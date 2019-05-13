@@ -2,7 +2,8 @@ import {
   GET_ALL_SOURCES_STARTED,
   GET_ALL_SOURCES_DONE,
   GET_ALL_SOURCES_FAILED,
-  SELECT_SOURCE_CATEGORY
+  SELECT_SOURCE_CATEGORY,
+  SELECT_SOURCE_LANGUAGE
 } from "../types/types";
 
 export const sourcesReducer = (state = [], action) => {
@@ -23,6 +24,10 @@ export const sourcesReducer = (state = [], action) => {
     case SELECT_SOURCE_CATEGORY:
       return Object.assign({}, state, {
         category: action.category
+      });
+    case SELECT_SOURCE_LANGUAGE:
+      return Object.assign({}, state, {
+        language: action.language
       });
     default:
       return state;
