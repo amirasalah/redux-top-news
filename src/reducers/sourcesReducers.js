@@ -10,24 +10,24 @@ export const sourcesReducer = (state = [], action) => {
   switch (action.type) {
     case GET_ALL_SOURCES_STARTED:
       return Object.assign({}, state, {
-        loading: true
+        sourcesLoading: true
       });
     case GET_ALL_SOURCES_DONE:
       return Object.assign({}, state, {
         availableSources: action.sources,
-        loading: false
+        sourcesLoading: false
       });
     case GET_ALL_SOURCES_FAILED:
       return Object.assign({}, state, {
-        error: true
+        sourcesError: true
       });
     case SELECT_SOURCE_CATEGORY:
       return Object.assign({}, state, {
-        category: action.category
+        sourcesCategory: action.category
       });
     case SELECT_SOURCE_LANGUAGE:
       return Object.assign({}, state, {
-        language: action.language
+        sourcesLanguage: action.language
       });
     default:
       return state;

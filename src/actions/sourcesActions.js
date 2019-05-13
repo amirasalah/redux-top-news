@@ -3,7 +3,7 @@ import {
   GET_ALL_SOURCES_DONE,
   GET_ALL_SOURCES_FAILED,
   SELECT_SOURCE_CATEGORY,
-  SELECT_SOURCE_LANGUAGE
+  SELECT_SOURCE_LANGUAGE,
 } from "../types/types";
 import { axiosInstance, API_KEY } from "../API/news-api";
 

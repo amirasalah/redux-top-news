@@ -6,9 +6,7 @@ import rootReducer from "./reducers";
 import thunk from "redux-thunk";
 import { createStore, applyMiddleware } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-
-
+import { BrowserRouter as Router } from 'react-router-dom';
 
 const store = createStore(
   rootReducer,
@@ -17,7 +15,7 @@ const store = createStore(
 const routing = (
   <Provider store={store}>
     <Router>
-      <App/>
+      <App />
     </Router>
   </Provider>
 )

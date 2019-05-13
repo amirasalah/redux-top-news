@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { fetchPosts } from "../../actions";
+import { fetchPosts } from "../../actions/sourcesActions";
 
 
 export class SourcesFilters extends Component {
-  changeCategory = (e, x) => {
+  changeCategory = (e) => {
     this.props.changeCategory(e.target.value , this.props.language)
   }
-  changeLanguage = (e, x) => {
+  changeLanguage = (e) => {
     this.props.changeLanguage(this.props.category , e.target.value)
   }
   render() {
@@ -15,7 +15,7 @@ export class SourcesFilters extends Component {
       <div>
         <div>
           <label>Category:</label>
-          <select defaultValue='business' onChange={(e, x) => this.changeCategory(e, x)}>
+          <select defaultValue='business' onChange={(e) => this.changeCategory(e)}>
             <option value="">All</option>
             <option value="business">business</option>
             <option value="entertainment">entertainment</option>
@@ -28,7 +28,7 @@ export class SourcesFilters extends Component {
         </div>
         <div>
           <label>Language:</label>
-          <select defaultValue='en' onChange={(e, x) => this.changeLanguage(e , x)}>
+          <select defaultValue='en' onChange={(e) => this.changeLanguage(e)}>
             <option value="">All</option>
             <option value="ar">Arabic</option>
             <option value="de">German</option>
@@ -54,8 +54,8 @@ export class SourcesFilters extends Component {
 
 const mapStateToProps = state => {
   return {
-    language: state.sourcesData.language,
-    category: state.sourcesData.category
+    language: state.sourcesData.sourcesLanguage,
+    category: state.sourcesData.sourcesCategory
   }
 };
 

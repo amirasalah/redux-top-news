@@ -1,9 +1,9 @@
 import React from 'react'
 
-function NotFound() {
+const NotFound = () => {
   return (
     <div>
-      
+      NOT FOUND
     </div>
   )
 }

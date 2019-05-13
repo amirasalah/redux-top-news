@@ -10,6 +10,8 @@ export class Header extends Component {
             <nav>
                 <ul>
                     <NavLink to="/sources">All sources</NavLink>
+                    <NavLink to="/headlines">Top Headlines</NavLink>
+
                 </ul>
             </nav>
             <Route path="/sources" Component={sourcesContainer}></Route>

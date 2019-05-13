@@ -1,15 +1,17 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { fetchPosts } from "../../actions";
+import { fetchPosts } from "../../actions/sourcesActions";
+
+
 export class SourceList extends Component {
   componentDidMount() {
     this.props.fetchPosts();
   }
 
   render() {
-    const { loading, availableSources } = this.props.newsSources;
+    const { sourcesLoading, availableSources } = this.props.newsSources;
     let availableNewsSources;
-    if (loading === false) {
+    if (sourcesLoading === false) {
       availableNewsSources = availableSources.sources.map(el => {
         return (
           <div key={el.id}>
@@ -24,9 +26,8 @@ export class SourceList extends Component {
     }
 
     return (
-      // <div></div>
       <React.Fragment>
-        {loading ? <p>Loading...</p> : <div>{availableNewsSources}</div>}
+        {sourcesLoading ? <p>Loading...</p> : <div>{availableNewsSources}</div>}
       </React.Fragment>
     );
   }
