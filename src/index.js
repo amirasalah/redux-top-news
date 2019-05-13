@@ -6,7 +6,7 @@ import rootReducer from "./reducers";
 import thunk from "redux-thunk";
 import { createStore, applyMiddleware } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 
 
@@ -14,12 +14,11 @@ const store = createStore(
   rootReducer,
   composeWithDevTools(applyMiddleware(thunk))
 );
-
-ReactDOM.render(
+const routing = (
   <Provider store={store}>
     <Router>
-      <Route path="/" exact component={App}/>
+      <App/>
     </Router>
-  </Provider>,
-  document.getElementById("root")
-);
+  </Provider>
+)
+ReactDOM.render(routing, document.getElementById("root"));
