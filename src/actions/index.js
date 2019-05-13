@@ -8,14 +8,14 @@ import {
 import { axiosInstance, API_KEY } from "../API/news-api";
 
 export const getSourcesStarted = () => ({
-    type: GET_ALL_SOURCES_STARTED
+  type: GET_ALL_SOURCES_STARTED
 });
 export const getSourcesDone = sources => ({
   type: GET_ALL_SOURCES_DONE,
   sources
 });
 export const getSourcesFailed = () => ({
-    type: GET_ALL_SOURCES_FAILED
+  type: GET_ALL_SOURCES_FAILED
 });
 export const selectSourceCategory = category => ({
   type: SELECT_SOURCE_CATEGORY,
@@ -25,7 +25,7 @@ export const selectSourceLanguage = language => ({
   type: SELECT_SOURCE_LANGUAGE,
   language
 });
-export const fetchPosts = (category = 'business' , language = 'en') => async dispatch => {
+export const fetchPosts = (category = 'business', language = 'en') => async dispatch => {
   dispatch(getSourcesStarted());
   dispatch(selectSourceCategory(category));
   dispatch(selectSourceLanguage(language));
