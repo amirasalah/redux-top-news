@@ -1,13 +1,16 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { fetchPosts } from "../../actions/sourcesActions";
+import { withRouter } from 'react-router-dom';
 
 
 export class SourceList extends Component {
   componentDidMount() {
     this.props.fetchPosts();
   }
-
+  openHeadlines = id => {
+    this.props.history.push(`/headlines/${id}`)
+  }
   render() {
     const { sourcesLoading, availableSources } = this.props.newsSources;
     let availableNewsSources;
@@ -18,7 +21,7 @@ export class SourceList extends Component {
             <p>
               <small>{el.category}</small>
             </p>
-            <strong>Get all Latest New from: {el.name}</strong>
+            <strong onClick={() => this.openHeadlines(el.id)}>Get all Latest New from: {el.name}</strong>
             <a href={el.url}>Visit website: <small>{el.name}</small></a>
           </div>
         );
@@ -38,8 +41,11 @@ const mapStateToProps = state => {
     newsSources: state.sourcesData
   };
 };
-
-export default connect(
-  mapStateToProps,
-  { fetchPosts }
-)(SourceList);
+const mapDispatchToProps = dispatch => {
+  return {
+    fetchPosts: () => dispatch(fetchPosts())
+  }
+};
+export default withRouter(connect(
+  mapStateToProps, mapDispatchToProps
+)(SourceList));

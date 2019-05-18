@@ -3,10 +3,9 @@ import { connect } from 'react-redux'
 import TopHeadlinesLits from './topHeadlinesLits';
 
 class TopHeadlinesContainer extends Component {
-
     render() {
         return (
-            <div><TopHeadlinesLits></TopHeadlinesLits></div>)
+            <div><TopHeadlinesLits id= {this.props.match.params.id}></TopHeadlinesLits></div>)
     }
 }
 
