@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { fetchHeadlines } from '../../actions/headlinesActions';
+import { HeadlinesWrapper , HeadlinesItem , HeadlinesImage } from "./headlines.styles";
 
 export class TopHeadlinesLits extends Component {
     componentDidMount() {
@@ -11,20 +12,19 @@ export class TopHeadlinesLits extends Component {
         const { headlinesLoading } = this.props;
         if (headlinesLoading === false) {
             articles = this.props.headlines.articles;
-            console.log(articles);
             return (
-                <div>
+                <HeadlinesWrapper>
                     {articles.map((el, index) =>
-                        <div key={index}>
+                        <HeadlinesItem key={index}>
                             <strong>{el.title}</strong>
                             <small>By: {el.author}</small>
                             <p>{el.description}</p>
                             <small>{el.publishedAt}</small>
-                            <img src={el.urlToImage}/>
+                            <HeadlinesImage alt={el.title} src={el.urlToImage} />
                             <p>{el.content}</p>
-                        </div>
+                        </HeadlinesItem>
                     )}
-                </div>
+                </HeadlinesWrapper>
             )
         }
         return (
@@ -33,17 +33,13 @@ export class TopHeadlinesLits extends Component {
     }
 }
 
-const mapStateToProps = (state) => {
-    return {
-        headlines: state.headlinesData.availableHeadlines,
-        headlinesLoading: state.headlinesData.headlinesLoading
-    }
-}
+const mapStateToProps = state => ({
+    headlines: state.headlinesData.availableHeadlines,
+    headlinesLoading: state.headlinesData.headlinesLoading
+})
 
-const mapDispatchToProps = dispatch => {
-    return {
-        fetchHeadlines: id => dispatch(fetchHeadlines(id))
-    }
-}
+const mapDispatchToProps = dispatch => ({
+    fetchHeadlines: id => dispatch(fetchHeadlines(id))
+})
 
 export default connect(mapStateToProps, mapDispatchToProps)(TopHeadlinesLits)

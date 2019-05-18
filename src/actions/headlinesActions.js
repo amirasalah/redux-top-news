@@ -17,7 +17,7 @@ export const getHeadlinesFailed = () => ({
   type: GET_ALL_HEADLINES_FAILED
 });
 
-export const fetchHeadlines = (id) => async (dispatch) => {
+export const fetchHeadlines = id => async dispatch => {
   dispatch(getHeadlinesStarted());
   try {
     const el = await axiosInstance

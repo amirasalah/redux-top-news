@@ -1,6 +1,6 @@
 import React from "react";
 import SourcesContainer from "./sources/sourcesContainer";
-import { Header } from "./header/header";
+import Header from "./header";
 import { Route, Switch } from 'react-router-dom';
 import NotFound from "./notFound/404";
 import TopHeadlinesContainer from "./headlines/topHeadlinesContainer";
@@ -8,7 +8,7 @@ import TopHeadlinesContainer from "./headlines/topHeadlinesContainer";
 
 const App = () => {
   return (
-    <React.Fragment> 
+    <React.Fragment>
       <Header />
       <Switch>
         <Route path="/" exact component={SourcesContainer} />

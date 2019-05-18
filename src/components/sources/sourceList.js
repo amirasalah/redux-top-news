@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { fetchPosts } from "../../actions/sourcesActions";
 import { withRouter } from 'react-router-dom';
+import { SourceItem } from "./sources.styles";
 
 
 export class SourceList extends Component {
@@ -17,13 +18,9 @@ export class SourceList extends Component {
     if (sourcesLoading === false) {
       availableNewsSources = availableSources.sources.map(el => {
         return (
-          <div key={el.id}>
-            <p>
-              <small>{el.category}</small>
-            </p>
-            <strong onClick={() => this.openHeadlines(el.id)}>Get all Latest New from: {el.name}</strong>
-            <a href={el.url}>Visit website: <small>{el.name}</small></a>
-          </div>
+          <SourceItem key={el.id}>
+              <strong onClick={() => this.openHeadlines(el.id)}>{el.name}</strong> / <small>{el.category}</small>
+          </SourceItem>
         );
       });
     }

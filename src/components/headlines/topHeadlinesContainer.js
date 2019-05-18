@@ -1,22 +1,6 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
 import TopHeadlinesLits from './topHeadlinesLits';
+import React from 'react'
 
-class TopHeadlinesContainer extends Component {
-    render() {
-        return (
-            <div><TopHeadlinesLits id= {this.props.match.params.id}></TopHeadlinesLits></div>)
-    }
-}
+const TopHeadlinesContainer = props => <TopHeadlinesLits id={props.match.params.id}></TopHeadlinesLits>
 
-const mapStateToProps = (state) => {
-    return {
-
-    }
-}
-
-const mapDispatchToProps = {
-
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(TopHeadlinesContainer)
+export default TopHeadlinesContainer;

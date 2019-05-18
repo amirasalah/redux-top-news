@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { fetchPosts } from "../../actions/sourcesActions";
+import { FiltersWrapper , SingleFilter } from "./sources.styles";
 
 
 export class SourcesFilters extends Component {
@@ -12,9 +13,9 @@ export class SourcesFilters extends Component {
   }
   render() {
     return (
-      <div>
-        <div>
-          <label>Category:</label>
+      <FiltersWrapper>
+        <SingleFilter>
+          <label><strong>Category:</strong>&nbsp;</label>
           <select defaultValue='business' onChange={(e) => this.changeCategory(e)}>
             <option value="">All</option>
             <option value="business">business</option>
@@ -25,9 +26,9 @@ export class SourcesFilters extends Component {
             <option value="sports">sports</option>
             <option value="technology">technology</option>
           </select>
-        </div>
-        <div>
-          <label>Language:</label>
+        </SingleFilter>
+        <SingleFilter>
+          <label><strong>Language:</strong>&nbsp;</label>
           <select defaultValue='en' onChange={(e) => this.changeLanguage(e)}>
             <option value="">All</option>
             <option value="ar">Arabic</option>
@@ -45,9 +46,8 @@ export class SourcesFilters extends Component {
             <option value="ud">Urdu</option>
             <option value="zh">chinese</option>
           </select>
-        </div>
-        <br/>
-      </div>
+        </SingleFilter>
+      </FiltersWrapper>
     );
   }
 }
