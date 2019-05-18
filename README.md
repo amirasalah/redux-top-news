@@ -1,4 +1,4 @@
-##This project is a react/redux/redux-thunk App.
+###This project is a react/redux/redux-thunk App.
 
 Using [News Api](https://newsapi.org/) As the backend.
 
